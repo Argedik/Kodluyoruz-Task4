@@ -5,9 +5,8 @@ Kadir Özsoy: [Github Profile](https://github.com/kozsoy)
 
 Yusuf Avcılar: [Github Profile](https://github.com/yusufavcilar)
 
-### For play the game; 
+### For play the game, [please click here](https://argedik.github.io/Kodluyoruz-Task4/) 
 
-[please click here](https://argedik.github.io/Kodluyoruz-Task4/);
 
 A photo from game; 
 
