@@ -5,7 +5,7 @@ Kadir Özsoy - Github Profile : https://github.com/kozsoy
 
 Yusuf Avcılar - Github Profile : https://github.com/Argedik
 
-Oynayabilmek için;
+For play the game;
 
 https://argedik.github.io/Kodluyoruz-Task4/
 
