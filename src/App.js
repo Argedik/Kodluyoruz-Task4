@@ -202,21 +202,18 @@ const App = () => {
         }
 
         //Bot kazandıysa
-        console.log(newSquares[a], newSquares[b], newSquares[c]);
         if (
           newSquares[a] &&
           newSquares[a] === newSquares[b] &&
           newSquares[a] === newSquares[c]
         ) {
           //Eğer dikeyde kazandıysa
-          console.log("O*******>", i);
           if (i === 0 || i === 1 || i === 2) {
             if (
               !newWinnerSquaresList[a].vertical &&
               !newWinnerSquaresList[b].vertical &&
               !newWinnerSquaresList[c].vertical
             ) {
-              console.log("i ye girdi dikey");
               btnClass[a] = "btn-win-red";
               btnClass[b] = "btn-win-red";
               btnClass[c] = "btn-win-red";
@@ -233,7 +230,6 @@ const App = () => {
               !newWinnerSquaresList[b].horizontal &&
               !newWinnerSquaresList[c].horizontal
             ) {
-              console.log("i ye girdi yatay");
               btnClass[a] = "btn-win-red";
               btnClass[b] = "btn-win-red";
               btnClass[c] = "btn-win-red";
@@ -250,7 +246,6 @@ const App = () => {
               !newWinnerSquaresList[b].rightCross &&
               !newWinnerSquaresList[c].rightCross
             ) {
-              console.log("i ye girdi sağ çağraz");
               btnClass[a] = "btn-win-red";
               btnClass[b] = "btn-win-red";
               btnClass[c] = "btn-win-red";
@@ -267,7 +262,6 @@ const App = () => {
               !newWinnerSquaresList[b].leftCross &&
               !newWinnerSquaresList[c].leftCross
             ) {
-              console.log("i ye girdi sol çağraz");
               btnClass[a] = "btn-win-red";
               btnClass[b] = "btn-win-red";
               btnClass[c] = "btn-win-red";
