@@ -3,7 +3,7 @@ Emir Al - Github Profile : https://github.com/themythia
 
 Kadir Özsoy - Github Profile : https://github.com/kozsoy
 
-Yusuf Avcılar - Github Profile : https://github.com/Argedik
+Yusuf Avcılar - Github Profile : https://github.com/yusufavcilar
 
 For play the game;
 
