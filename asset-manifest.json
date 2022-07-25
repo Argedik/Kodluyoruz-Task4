@@ -1,0 +1,13 @@
+{
+  "files": {
+    "main.css": "/Kodluyoruz-Task4/static/css/main.54de65a6.css",
+    "main.js": "/Kodluyoruz-Task4/static/js/main.5bd57abe.js",
+    "index.html": "/Kodluyoruz-Task4/index.html",
+    "main.54de65a6.css.map": "/Kodluyoruz-Task4/static/css/main.54de65a6.css.map",
+    "main.5bd57abe.js.map": "/Kodluyoruz-Task4/static/js/main.5bd57abe.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.54de65a6.css",
+    "static/js/main.5bd57abe.js"
+  ]
+}
