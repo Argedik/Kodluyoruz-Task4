@@ -3,16 +3,18 @@ import "./App.css";
 import randomNumbers from "./utils/RandomNumbers";
 
 const App = () => {
+  //satır ve stunların kontrolleri için için boş array ve objeler oluşturuluyor
   let arrColumn = Array(11).fill(0);
   let arrRow = Array(20).fill(0);
   let squaresList = {};
   let squaresClassList = {};
   let winnerSquaresList = {};
   const [newSquares, setNewSquares] = useState(squaresList);
-  // const [squares, setSquares] = useState(Array(9).fill(null));
   const [btnClass, setBtnClass] = useState(squaresClassList);
   const [newWinnerSquaresList, setNewWinnerSquaresList] =
     useState(winnerSquaresList);
+
+  //Proje başlatıldığında tüm karelerin varsayılan değerleri atanıyor
   useEffect(() => {
     for (let indexRow = 0; indexRow < arrRow.length; indexRow++) {
       for (let indexColumn = 0; indexColumn < arrColumn.length; indexColumn++) {
@@ -30,6 +32,8 @@ const App = () => {
       }
     }
   }, []);
+
+  //3 "X" yada 3 "O" nun kazanma kuralları oluşturuluyor
   const createArr = (row, column) => {
     return [
       //dikey
@@ -82,22 +86,21 @@ const App = () => {
       ],
     ];
   };
+
+  //Herhangi bir kareye tıklandığında çalışsın
   const test = (index) => {
     if (newSquares[index] === "") {
       //Tıklanan hücreye "X" koy
       newSquares[index] = "X";
-      //Boş hücreleri bul
+      //"O" koymak için önce kalan boş hücreleri bul
       const blanks = [];
       for (let blank in newSquares) {
-        // blanks.push = newSquares[blank] === "" ? blanks : null;
         if (newSquares[blank] === "") {
           blanks.push(blank);
         }
       }
       //Boş hücrelerden rastgele birine "O" koy
       const tourOfBot = blanks[randomNumbers(0, blanks.length)];
-      // console.log(tourOfBot);
-      // console.log(blanks);
       newSquares[tourOfBot] = "O";
       const selectedRowForBot =
         parseInt(tourOfBot.slice(0, 2)) <= 9
@@ -118,30 +121,22 @@ const App = () => {
           ? parseInt(index.slice(-1))
           : parseInt(index.slice(-2));
 
+      //Oyuncunun ve botun yaptığı hamle indexleri
       const userArr = createArr(selectedRow, selectedColumn);
       const botArr = createArr(selectedRowForBot, selectedColumnForBot);
+
+      //Oluşturduğumuz kurallara göre kazananı belirleme
       for (let i = 0; i < userArr.length; i++) {
+        //a,b,c Bot için kontrol, x,y,z ise oyuncu için kontrol
         const [a, b, c] = botArr[i];
         const [x, y, z] = userArr[i];
-        // const [botSquares, botNewSquares] = useState(botSquaresList);
-        // // const [squares, setSquares] = useState(Array(9).fill(null));
-        // const [botBtnClass, setBotBtnClass] = useState(botClassList);
-        // const [botWinnerSquares, setBotNewWinnerSquares] =
-        //   useState(botWinnerSquaresList);
+        //eğer oyununcunun hamlesi kurallara uyuyorsa
         if (
           newSquares[x] &&
           newSquares[x] === newSquares[y] &&
           newSquares[x] === newSquares[z]
         ) {
           //Eğer dikeyde kazandıysa
-          console.log("X---->>", i);
-          // console.log(
-          //   "X İÇİN",
-          //   newWinnerSquaresList[x],
-          //   newWinnerSquaresList[y],
-          //   newWinnerSquaresList[z]
-          // );
-
           if (i === 0 || i === 1 || i === 2) {
             if (
               !newWinnerSquaresList[x].vertical &&
@@ -156,6 +151,8 @@ const App = () => {
               newWinnerSquaresList[z].vertical = true;
             }
           }
+
+          //Eğer yatayda kazandıysa
           if (i === 3 || i === 4 || i === 5) {
             if (
               !newWinnerSquaresList[x].horizontal &&
@@ -170,6 +167,8 @@ const App = () => {
               newWinnerSquaresList[z].horizontal = true;
             }
           }
+
+          //Eğer sağ çağrazda kazandıysa
           if (i === 6 || i === 7 || i === 8) {
             if (
               !newWinnerSquaresList[x].rightCross &&
@@ -184,6 +183,8 @@ const App = () => {
               newWinnerSquaresList[z].rightCross = true;
             }
           }
+
+          //Eğer sol çağrazda kazandıysa
           if (i === 9 || i === 10 || i === 11) {
             if (
               !newWinnerSquaresList[x].leftCross &&
@@ -224,6 +225,8 @@ const App = () => {
               newWinnerSquaresList[c].vertical = true;
             }
           }
+
+          //Eğer yatayda kazandıysa
           if (i === 3 || i === 4 || i === 5) {
             if (
               !newWinnerSquaresList[a].horizontal &&
@@ -239,6 +242,8 @@ const App = () => {
               newWinnerSquaresList[c].horizontal = true;
             }
           }
+
+          //Eğer sağ çağrazda kazandıysa
           if (i === 6 || i === 7 || i === 8) {
             if (
               !newWinnerSquaresList[a].rightCross &&
@@ -254,6 +259,8 @@ const App = () => {
               newWinnerSquaresList[c].rightCross = true;
             }
           }
+
+          //Eğer sol çağrazda kazandıysa
           if (i === 9 || i === 10 || i === 11) {
             if (
               !newWinnerSquaresList[a].leftCross &&
@@ -273,8 +280,11 @@ const App = () => {
       }
     }
 
+    //değerleri güncelle
     setNewSquares({ ...newSquares });
   };
+
+  //satırlar ve stunlar oluşturuluyor
   return (
     <div className="container">
       {arrRow.map(function (each, indexRow) {
@@ -284,7 +294,6 @@ const App = () => {
               return (
                 <div
                   className={btnClass[indexRow + "/" + indexColumn]}
-                  // onClick={() =>
                   onClick={() => test(indexRow + "/" + indexColumn)}
                   key={indexColumn}
                 >
