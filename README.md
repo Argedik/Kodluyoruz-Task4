@@ -1,9 +1,9 @@
 ### Team Project;
-Emir Al - Github Profile : https://github.com/themythia
+Emir Al - Github Profile : [Github Profile](https://github.com/themythia)
 
-Kadir Özsoy - Github Profile : https://github.com/kozsoy
+Kadir Özsoy - Github Profile : [Github Profile](https://github.com/kozsoy)
 
-Yusuf Avcılar - Github Profile : [test](https://github.com/yusufavcilar)
+Yusuf Avcılar - Github Profile : [Github Profile](https://github.com/yusufavcilar)
 
 For play the game;
 
